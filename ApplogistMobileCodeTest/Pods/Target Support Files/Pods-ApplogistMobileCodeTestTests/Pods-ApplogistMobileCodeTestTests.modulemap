@@ -1,0 +1,6 @@
+framework module Pods_ApplogistMobileCodeTestTests {
+  umbrella header "Pods-ApplogistMobileCodeTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
