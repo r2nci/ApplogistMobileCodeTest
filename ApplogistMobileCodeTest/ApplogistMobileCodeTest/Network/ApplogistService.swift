@@ -14,7 +14,7 @@ class ApplogistService: BaseService {
         }
     }
     
-    static func getList(success: @escaping (_ nowPlayingResponse: [ItemListModel]) -> Void, failure: @escaping (_ errorModel: ErrorModel?) -> Void) -> Void {
+    static func getList(success: @escaping (_ itemList: [ItemListModel]) -> Void, failure: @escaping (_ errorModel: ErrorModel?) -> Void) -> Void {
         let url = baseUrl + "list"
         
         get(url: url, success: { (responseData) in
