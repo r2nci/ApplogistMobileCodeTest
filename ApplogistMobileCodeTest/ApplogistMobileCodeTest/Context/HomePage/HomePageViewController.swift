@@ -7,10 +7,9 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: BaseVC {
     
     var itemList : [ItemListModel] = []
-    var navbarLabel = UILabel()
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(UINib.init(nibName: "HomePageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomePageCollectionViewCell")
@@ -31,21 +30,26 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.getListReq()
-        if let navigationBar = self.navigationController?.navigationBar {
-            let logo = UIImage(named: "basket")
-            
-            let imageView = UIImageView(image:logo)
-            imageView.frame = CGRect(x: navigationBar.frame.size.width-60, y: 0, width: navigationBar.frame.height, height: navigationBar.frame.height)
-            navbarLabel = UILabel(frame: CGRect(x: navigationBar.frame.size.width-25, y: -20, width: navigationBar.frame.height, height: navigationBar.frame.height))
-            refresh()
-            navigationBar.addSubview(imageView)
-            navigationBar.addSubview(navbarLabel)
-        }
+        setupUI(isDetail: false)
         // Do any additional setup after loading the view.
     }
     
-    func refresh() {
-        self.navbarLabel.text = "\(Global.shared.itemList.count)"
+    override func refresh() {
+        self.navbarLabel.text = "\(Global.shared.totalProduct)"
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+     @objc override func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        let vc = BasketDetailViewController()
+         navigationController?.pushViewController(vc, animated: true)
+        vc.callback = {
+            (item) in
+            if let index = self.itemList.firstIndex(of: item) {
+                self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+            }
+            self.refresh()
+        }
     }
 }
 
@@ -64,11 +68,11 @@ extension HomePageViewController : UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-      {
-          let collectionViewSize = collectionView.frame.size
-          let itemWidth: CGFloat = (collectionViewSize.width-20)/3
-          return CGSize.init(width: itemWidth, height: collectionViewSize.height*0.3 )
-      }
+    {
+        let collectionViewSize = collectionView.frame.size
+        let itemWidth: CGFloat = (collectionViewSize.width-20)/3
+        return CGSize.init(width: itemWidth, height: collectionViewSize.height*0.3 )
+    }
 }
 
 extension HomePageViewController: HomePageVMMDelegate {

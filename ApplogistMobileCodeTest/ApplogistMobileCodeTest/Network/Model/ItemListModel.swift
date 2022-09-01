@@ -22,6 +22,7 @@ class ItemListModel: Hashable, Codable {
     let currency: String?
     let imageUrl: String?
     let stock: Int?
+    var amount = 0
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

@@ -17,4 +17,11 @@ class Global {
         return total
     }
     
+    var totalProduct:Int {
+        var total: Int = 0
+        for item in itemList {
+            total += item.amount
+        }
+        return total
+    }
 }

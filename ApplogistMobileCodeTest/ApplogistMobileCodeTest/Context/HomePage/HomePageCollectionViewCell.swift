@@ -14,7 +14,6 @@ protocol HomePageCollectionViewDelegate: AnyObject {
 class HomePageCollectionViewCell: UICollectionViewCell {
     var delegate: HomePageCollectionViewDelegate?
     var currentItem : ItemListModel?
-    var itemCount:Int = 0
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.contentMode = .scaleToFill
@@ -48,15 +47,24 @@ class HomePageCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func buttonPlusAction(_ sender: UIButton) {
-        itemCount+=1
         buttonMinusOutlet.isHidden = false
         labelCount.isHidden = false
         guard let currentItem = currentItem else {
             return
         }
+        if !Global.shared.itemList.isEmpty {
+            if let index = Global.shared.itemList.firstIndex(of: currentItem) {
+                Global.shared.itemList[index].amount += 1
+                }
+            else {
+                Global.shared.itemList.append(currentItem)
+                currentItem.amount += 1
+            }
+        } else {
+            Global.shared.itemList.append(currentItem)
+            Global.shared.itemList.first?.amount += 1
+        }
 
-        Global.shared.itemList.append(currentItem)
-        print(Global.shared.totalAmount)
         refresh()
     }
     
@@ -64,13 +72,20 @@ class HomePageCollectionViewCell: UICollectionViewCell {
         guard let currentItem = currentItem else {
             return
         }
-        if let index = Global.shared.itemList.firstIndex(of: currentItem) {
-            Global.shared.itemList.remove(at: index)
+        for item in Global.shared.itemList {
+            if currentItem.id == item.id {
+                if let index = Global.shared.itemList.firstIndex(of: currentItem) {
+                    Global.shared.itemList[index].amount -= 1
+                    }
+               
+            }
         }
-        print(Global.shared.totalAmount)
         refresh()
-        itemCount-=1
-        if itemCount == 0  {
+        if currentItem.amount == 0  {
+            if let index = Global.shared.itemList.firstIndex(of: currentItem) {
+                Global.shared.itemList.remove(at: index)
+                }
+         
             buttonMinusOutlet.isHidden = true
             labelCount.isHidden = true
         }
@@ -82,16 +97,34 @@ class HomePageCollectionViewCell: UICollectionViewCell {
         imageView.sd_setImage(with: URL(string: item.imageUrl ?? ""),placeholderImage: UIImage(named: "placeholder") )
         labelPrice.text = "\(item.price ?? 0.0)"
         labelProductName.text = item.name
+        if currentItem?.amount != 0 {
+            labelCount.text = "\(currentItem?.amount ?? 0)"
+            buttonPlusOutlet.isEnabled = true
+            buttonPlusOutlet.isHidden = false
+            buttonMinusOutlet.isHidden = false
+            labelCount.isHidden = false
+            buttonMinusOutlet.isEnabled = true
+        } else {
+            buttonPlusOutlet.isEnabled = true
+            buttonPlusOutlet.isHidden = false
+            buttonMinusOutlet.isHidden = true
+            labelCount.isHidden = true
+            buttonMinusOutlet.isEnabled = false
+        }
+        refresh()
     }
     
     func refresh() {
         self.delegate?.refreshBasket()
-        if itemCount == currentItem?.stock ?? 0 {
+        if currentItem?.amount == currentItem?.stock ?? 0 {
             buttonPlusOutlet.isEnabled = false
         } else {
             buttonPlusOutlet.isEnabled = true
         }
-        self.labelCount.text = "\(itemCount)"
+        guard let currentItem = currentItem else {
+            return
+        }
+        self.labelCount.text = "\(currentItem.amount )"
     }
 
 }
