@@ -12,9 +12,9 @@ class Global {
     var totalAmount:Double {
         var total : Double = 0.0
         for item in itemList {
-            total += item.price ?? 0.0
+            total += (item.price ?? 0.0)*Double(item.amount)
         }
-        return total
+        return total.rounded(toPlaces: 2)
     }
     
     var totalProduct:Int {

@@ -27,6 +27,7 @@ class BasketDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var labelProductPrice: UILabel! {
         didSet {
             labelProductPrice.numberOfLines  = 1
+            labelProductPrice.textColor = .blue
         }
     }
     
@@ -38,6 +39,7 @@ class BasketDetailTableViewCell: UITableViewCell {
         guard let currentItem = currentItem else {
             return
         }
+        buttonPlusOutlet.isEnabled = true
         if let index = Global.shared.itemList.firstIndex(of: currentItem) {
             Global.shared.itemList[index].amount -= 1
             labelProductCount.text = "\(Global.shared.itemList[index].amount)"
@@ -77,7 +79,7 @@ class BasketDetailTableViewCell: UITableViewCell {
             buttonMinusOutlet.isEnabled = true
         }
         imageViewProduct.sd_setImage(with: URL(string: item.imageUrl ?? ""),placeholderImage: UIImage(named: "placeholder") )
-        labelProductPrice.text = "\(item.price ?? 0.0)"
+        labelProductPrice.text = "\(item.currency ?? "")\(item.price ?? 0.0)"
         labelProductName.text = item.name
         labelProductCount.text = "\(item.amount)"
     }

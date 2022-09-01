@@ -28,27 +28,34 @@ class HomePageViewController: BaseVC {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        startLoading()
         viewModel.delegate = self
-        viewModel.getListReq()
-        setupUI(isDetail: false)
+        sendReq()
         // Do any additional setup after loading the view.
     }
     
-    override func refresh() {
-        self.navbarLabel.text = "\(Global.shared.totalProduct)"
+    func sendReq(){
+        viewModel.getListReq()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
+        setupUI(isDetail: false)
         collectionView.reloadData()
     }
-     @objc override func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+    @objc override func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         let vc = BasketDetailViewController()
-         navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
         vc.callback = {
-            (item) in
+            (item,newReq) in
+            if newReq {
+                self.sendReq()
+            } else {
+                guard let item = item else { return }
             if let index = self.itemList.firstIndex(of: item) {
                 self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
             }
             self.refresh()
+            }
         }
     }
 }
@@ -77,10 +84,15 @@ extension HomePageViewController : UICollectionViewDelegate, UICollectionViewDat
 
 extension HomePageViewController: HomePageVMMDelegate {
     func getErr(err: ErrorModel) {
-        
+        stopLoading()
+        popupAlert(title: "Hata", message: err.description, actionTitles: ["Tamam"], actions: [{action1 in
+            self.startLoading()
+            self.sendReq()
+        }])
     }
     
     func getListResponse(itemList: [ItemListModel]) {
+        stopLoading()
         self.itemList = itemList
         self.collectionView.reloadData()
     }

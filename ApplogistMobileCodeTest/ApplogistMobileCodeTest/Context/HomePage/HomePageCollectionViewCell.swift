@@ -20,7 +20,11 @@ class HomePageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelPrice: UILabel! {
+        didSet {
+            labelPrice.textColor = .blue
+        }
+    }
     
     @IBOutlet weak var stackView: UIStackView! {
         didSet {
@@ -48,6 +52,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
     
     @IBAction func buttonPlusAction(_ sender: UIButton) {
         buttonMinusOutlet.isHidden = false
+        buttonMinusOutlet.isEnabled = true
         labelCount.isHidden = false
         guard let currentItem = currentItem else {
             return
@@ -95,7 +100,7 @@ class HomePageCollectionViewCell: UICollectionViewCell {
     func configure(item:ItemListModel) {
         self.currentItem = item
         imageView.sd_setImage(with: URL(string: item.imageUrl ?? ""),placeholderImage: UIImage(named: "placeholder") )
-        labelPrice.text = "\(item.price ?? 0.0)"
+        labelPrice.text = "\(item.currency ?? "")\(item.price ?? 0.0)"
         labelProductName.text = item.name
         if currentItem?.amount != 0 {
             labelCount.text = "\(currentItem?.amount ?? 0)"

@@ -39,16 +39,16 @@
                                 <rect key="frame" x="104" y="0.0" width="112" height="154"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jO6-8C-DSn">
-                                        <rect key="frame" x="0.0" y="0.0" width="112" height="154"/>
+                                        <rect key="frame" x="0.0" y="54.5" width="112" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-PE-QU9">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="75"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-jF-N0j">
-                                                <rect key="frame" x="0.0" y="79" width="112" height="75"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="112" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -58,10 +58,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jO6-8C-DSn" secondAttribute="bottom" id="QYj-zw-qle"/>
+                                    <constraint firstItem="jO6-8C-DSn" firstAttribute="centerY" secondItem="gZK-Ap-kjc" secondAttribute="centerY" id="KzJ-Ma-if6"/>
                                     <constraint firstItem="jO6-8C-DSn" firstAttribute="leading" secondItem="gZK-Ap-kjc" secondAttribute="leading" id="ZB4-0G-5pU"/>
                                     <constraint firstAttribute="trailing" secondItem="jO6-8C-DSn" secondAttribute="trailing" id="hAM-Gh-ChA"/>
-                                    <constraint firstItem="jO6-8C-DSn" firstAttribute="top" secondItem="gZK-Ap-kjc" secondAttribute="top" id="zoS-is-bSK"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-3r-zsg">

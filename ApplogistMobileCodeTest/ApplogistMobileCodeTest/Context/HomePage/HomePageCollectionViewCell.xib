@@ -20,13 +20,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="301" height="351"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-gA-CeR">
-                                <rect key="frame" x="0.0" y="0.0" width="301" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="303"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="334-97-IlO">
-                                <rect key="frame" x="0.0" y="300" width="301" height="51"/>
+                                <rect key="frame" x="0.0" y="303" width="301" height="48"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5OB-D2-ZWR">
-                                        <rect key="frame" x="8" y="0.0" width="285" height="51"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5OB-D2-ZWR">
+                                        <rect key="frame" x="8" y="0.0" width="285" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl4-0v-Xp9">
                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="20.5"/>
@@ -35,7 +35,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="YgO-6E-Qk0">
-                                                <rect key="frame" x="0.0" y="30.5" width="285" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="27.5" width="285" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -52,10 +52,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyw-qJ-hpO">
-                                <rect key="frame" x="195.5" y="8" width="105.5" height="30"/>
+                                <rect key="frame" x="180.5" y="8" width="120.5" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p39-hP-viS">
-                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="-"/>
                                         <connections>
@@ -63,14 +63,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ap-v3-GLP">
-                                        <rect key="frame" x="35.5" y="0.0" width="35" height="30"/>
-                                        <color key="backgroundColor" red="0.26274509800000001" green="0.26379683609999999" blue="0.26379683609999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="40" y="0.0" width="40.5" height="30"/>
+                                        <color key="backgroundColor" red="0.88627450980392153" green="0.95294117647058818" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBD-g1-Kft">
-                                        <rect key="frame" x="70.5" y="0.0" width="35" height="30"/>
+                                        <rect key="frame" x="80.5" y="0.0" width="40" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="+"/>
                                         <connections>
@@ -95,7 +95,7 @@
                             <constraint firstItem="yyw-qJ-hpO" firstAttribute="top" secondItem="4t0-xW-OFq" secondAttribute="top" constant="8" id="ZyJ-EX-MeR"/>
                             <constraint firstItem="334-97-IlO" firstAttribute="leading" secondItem="4t0-xW-OFq" secondAttribute="leading" id="bJx-uZ-5HM"/>
                             <constraint firstItem="334-97-IlO" firstAttribute="top" secondItem="xgN-gA-CeR" secondAttribute="bottom" id="cgW-d3-OZz"/>
-                            <constraint firstItem="yyw-qJ-hpO" firstAttribute="width" secondItem="4t0-xW-OFq" secondAttribute="width" multiplier="0.35" id="tUO-vA-nw2"/>
+                            <constraint firstItem="yyw-qJ-hpO" firstAttribute="width" secondItem="4t0-xW-OFq" secondAttribute="width" multiplier="0.4" id="tUO-vA-nw2"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -29,6 +29,10 @@
 		0D94B65D28BD666800975109 /* ApplogistMobileCodeTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B65C28BD666800975109 /* ApplogistMobileCodeTestUITestsLaunchTests.swift */; };
 		0D94B66B28BD69A500975109 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B66A28BD69A500975109 /* BaseService.swift */; };
 		0D94B66D28BD69D100975109 /* ApplogistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94B66C28BD69D100975109 /* ApplogistService.swift */; };
+		0DA492B528C0909900845747 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA492B428C0909900845747 /* DoubleExtension.swift */; };
+		0DDD437B28C0A34B0074A9B1 /* BasketDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD437A28C0A34B0074A9B1 /* BasketDetailViewModel.swift */; };
+		0DDD437D28C0AC350074A9B1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD437C28C0AC350074A9B1 /* UIViewController.swift */; };
+		0DDD437F28C0B1810074A9B1 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD437E28C0B1810074A9B1 /* OrderModel.swift */; };
 		138730D85040C5E4EB557600 /* Pods_ApplogistMobileCodeTest_ApplogistMobileCodeTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71C92039213DBE522B38BC1 /* Pods_ApplogistMobileCodeTest_ApplogistMobileCodeTestUITests.framework */; };
 		5BEF5A84EA4A8953880B89A6 /* Pods_ApplogistMobileCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0966A01F0EFE23B5C30AD534 /* Pods_ApplogistMobileCodeTest.framework */; };
 		8AD7C4F0797C3B5A66546905 /* Pods_ApplogistMobileCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C4DA9B8F72AA27B2A18D25 /* Pods_ApplogistMobileCodeTestTests.framework */; };
@@ -79,6 +83,10 @@
 		0D94B65C28BD666800975109 /* ApplogistMobileCodeTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplogistMobileCodeTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0D94B66A28BD69A500975109 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		0D94B66C28BD69D100975109 /* ApplogistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplogistService.swift; sourceTree = "<group>"; };
+		0DA492B428C0909900845747 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		0DDD437A28C0A34B0074A9B1 /* BasketDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketDetailViewModel.swift; sourceTree = "<group>"; };
+		0DDD437C28C0AC350074A9B1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		0DDD437E28C0B1810074A9B1 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		35A4EF57788FD5FDF0163DC1 /* Pods-ApplogistMobileCodeTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplogistMobileCodeTestTests.debug.xcconfig"; path = "Target Support Files/Pods-ApplogistMobileCodeTestTests/Pods-ApplogistMobileCodeTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D85B57E311708B1F8F39F92 /* Pods-ApplogistMobileCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplogistMobileCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-ApplogistMobileCodeTestTests/Pods-ApplogistMobileCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		917494633CA5A588B6D13A07 /* Pods-ApplogistMobileCodeTest-ApplogistMobileCodeTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplogistMobileCodeTest-ApplogistMobileCodeTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-ApplogistMobileCodeTest-ApplogistMobileCodeTestUITests/Pods-ApplogistMobileCodeTest-ApplogistMobileCodeTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 				0D081AAC28BE5D1600EE44C4 /* BasketDetailViewController.xib */,
 				0D081AAF28BE5D2900EE44C4 /* BasketDetailTableViewCell.swift */,
 				0D081AB028BE5D2900EE44C4 /* BasketDetailTableViewCell.xib */,
+				0DDD437A28C0A34B0074A9B1 /* BasketDetailViewModel.swift */,
 			);
 			path = BasketDetail;
 			sourceTree = "<group>";
@@ -131,6 +140,7 @@
 		0D0D82B328BDDF33006603C1 /* Context */ = {
 			isa = PBXGroup;
 			children = (
+				0DA492B328C0908C00845747 /* Extensions */,
 				0D942CF928BF76A9003C51B4 /* Base */,
 				0D081AAA28BE5CE700EE44C4 /* BasketDetail */,
 				0D0D82B428BDDF47006603C1 /* HomePage */,
@@ -156,6 +166,7 @@
 			children = (
 				0D8D4DCE28BD6B1C00E9EB8A /* ErrorModel.swift */,
 				0D8D4DD228BD6B7800E9EB8A /* ItemListModel.swift */,
+				0DDD437E28C0B1810074A9B1 /* OrderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +240,15 @@
 				0D94B66C28BD69D100975109 /* ApplogistService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		0DA492B328C0908C00845747 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0DA492B428C0909900845747 /* DoubleExtension.swift */,
+				0DDD437C28C0AC350074A9B1 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7E31C50F90587AF7414246A7 /* Pods */ = {
@@ -496,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DDD437F28C0B1810074A9B1 /* OrderModel.swift in Sources */,
 				0D081AAD28BE5D1600EE44C4 /* BasketDetailViewController.swift in Sources */,
 				0D0D82B728BDDF5F006603C1 /* HomePageCollectionViewCell.swift in Sources */,
 				0D081AB128BE5D2900EE44C4 /* BasketDetailTableViewCell.swift in Sources */,
@@ -506,8 +527,11 @@
 				0D94B66D28BD69D100975109 /* ApplogistService.swift in Sources */,
 				0D94B66B28BD69A500975109 /* BaseService.swift in Sources */,
 				0D94B63A28BD666400975109 /* AppDelegate.swift in Sources */,
+				0DDD437B28C0A34B0074A9B1 /* BasketDetailViewModel.swift in Sources */,
 				0D942CFB28BF76B4003C51B4 /* BaseVC.swift in Sources */,
 				0D0D82C028BDECEF006603C1 /* Global.swift in Sources */,
+				0DA492B528C0909900845747 /* DoubleExtension.swift in Sources */,
+				0DDD437D28C0AC350074A9B1 /* UIViewController.swift in Sources */,
 				0D94B63C28BD666400975109 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

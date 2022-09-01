@@ -37,4 +37,39 @@ class ApplogistService: BaseService {
         }
     }
     
+    static func sendData(success: @escaping (_ order: Order) -> Void, failure: @escaping (_ errorModel: ErrorModel?) -> Void) -> Void {
+        let url = baseUrl + "checkout"
+        let data = createJson(itemList: Global.shared.itemList)!
+        post(url: URL(string: url)!,parameters: data) { responseData in
+            guard let baseResponse = responseData else {
+                failure(nil)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseModel: Order = try decoder.decode(Order.self, from: baseResponse)
+                success(responseModel)
+            }
+            catch {
+                failure(ErrorModel.init(error: error))
+            }
+        } failure: { err in
+            failure(err)
+        }
+
+    }
+    static func createJson(itemList:[ItemListModel]) -> Data?{
+        
+        var informations:[[String:Any]] = []
+        
+        for index in 0..<itemList.count {
+            let dict = ["id":itemList[index].id ?? "","amount":itemList[index].amount] as [String : Any]
+            informations.append(dict)
+        }
+        
+        //Convert to json
+        let body = try? JSONSerialization.data(withJSONObject: ["products":informations], options: [])
+        return body
+    }
+    
 }
